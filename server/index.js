@@ -1,19 +1,19 @@
 const express = require( 'express' );
 
+const handle = require('./handlers')
+
 const app = express();
 
 const port = 4000;
 
 
+
+
 app.get( '/', ( req, res ) => res.json( { hello: 'world' } ) );
 
-app.use( ( req, res, next ) =>
-{
-    const err = new Error( 'not found' );
-    err.status = 404;
+app.use( handle.notFound );
 
-    next( err );
-} );
+app.use( handle.errors );
 
 
 
