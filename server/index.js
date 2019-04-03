@@ -3,7 +3,8 @@ const express = require( 'express' );
 const cors = require( 'cors' );
 const bodyParser = require( 'body-parser' );
 
-const handle = require('./handlers')
+const db = require( './models' );
+const handle = require( './handlers' );
 
 const app = express();
 
